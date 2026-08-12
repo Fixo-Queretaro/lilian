@@ -1,0 +1,31 @@
+# Sistema / editor
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.tmp
+
+# Respaldos y prototipos HTML
+home-v2*.html
+home-borrador-definitivo.html
+prototipo-home-terapia-holografica.html
+direccion-creativa-terapia-holografica.html
+
+# Capturas de trabajo
+captura-*.png
+
+# Conceptos visuales de desarrollo
+hero-concepts/
+
+# Documentación original de cliente
+*.doc
+*.docx
+
+# Imágenes duplicadas en la raíz
+/testimonio-*.webp
+/lilian-play-video.webp
+/lili-chida.jpg
+/logo desconocido.svg
+
+# Copias de trabajo
+*Copiar*
