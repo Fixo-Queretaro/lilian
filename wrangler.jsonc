@@ -1,0 +1,7 @@
+{
+  "name": "lilian",
+  "compatibility_date": "2026-08-12",
+  "assets": {
+    "directory": "./dist"
+  }
+}

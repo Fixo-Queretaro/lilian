@@ -29,3 +29,9 @@ hero-concepts/
 
 # Copias de trabajo
 *Copiar*
+
+# Build / deploy Cloudflare
+/dist/
+
+# Wrangler local state
+/.wrangler/
