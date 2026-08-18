@@ -35,3 +35,7 @@ hero-concepts/
 
 # Wrangler local state
 /.wrangler/
+
+# Material fuente local
+/nuevos-testimonios/
+/formacion/
