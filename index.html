@@ -1260,7 +1260,7 @@
             }
 
             /* ============================================================
-               TESTIMONIOS — carrusel circular de 5 pares fijos (10 personas)
+               TESTIMONIOS — carrusel circular de 7 pares fijos (14 personas)
                Clases encapsuladas: .testimonials-*, .testimonial-card-large*
                No reutiliza ni sobrescribe .card, .btn, .modal, .grid, .photo genéricos.
             ============================================================ */
@@ -1387,6 +1387,19 @@
                 height: 100%;
                 object-fit: contain;
             }
+            @media (min-width: 961px) {
+                .testimonial-card-large__photo--portrait-strong::before {
+                    opacity: 0.72;
+                    filter: blur(22px);
+                    transform: scale(1.16);
+                }
+                .testimonial-card-large__photo--portrait-strong::after {
+                    background: rgba(251, 247, 240, 0.16);
+                }
+                .testimonial-card-large__photo--portrait-strong img {
+                    transform-origin: center center;
+                }
+            }
             .testimonial-card-large__photo--placeholder {
                 width: 100%;
                 height: 100%;
@@ -1437,6 +1450,13 @@
                 font-size: 0.8rem;
                 color: var(--tinta-suave);
                 margin-top: 3px;
+            }
+            .testimonial-pride-badge {
+                display: inline-block;
+                margin-left: 5px;
+                font-size: 1rem;
+                line-height: 1;
+                vertical-align: -0.08em;
             }
 
             .testimonial-readmore {
@@ -2333,7 +2353,7 @@
             </section>
 
             <!-- ============ TESTIMONIOS ============ -->
-            <!-- ============ TESTIMONIOS — carrusel circular de 5 pares (10) ============ -->
+            <!-- ============ TESTIMONIOS — carrusel circular de 7 pares (14) ============ -->
             <section id="testimonios" class="testimonials-section">
                 <div class="wrap">
                     <p class="eyebrow center">Historias reales</p>
@@ -2376,7 +2396,7 @@
                                 id="testimonialsCounter"
                                 aria-live="polite"
                             >
-                                1–2 de 10
+                                1–2 de 14
                             </p>
                             <button
                                 class="testimonials-nav-btn"
@@ -2912,7 +2932,7 @@
 
         <script>
             // ============================================================
-            // TESTIMONIOS — carrusel circular de 5 pares fijos (10 personas).
+            // TESTIMONIOS — carrusel circular de 7 pares fijos (14 personas).
             // Fuente de datos única en JS. Reutiliza el modal existente.
             // No toca menú, flores, parallax ni formulario.
             // Falla en silencio si algún elemento no existe.
@@ -2927,6 +2947,30 @@
 
                     var testimonials = [
                         {
+                            name: "Cath González",
+                            photo: "assets/testimonio-cath-gonzalez.webp",
+                            photoPosition: "50% 15%",
+                            context: "Consultante",
+                            excerpt:
+                                "Encontrar a Lilian fue una bendición. Es capaz de crear un espacio seguro donde puedes trabajar, crecer y florecer.",
+                            fullText:
+                                "Encontrar a Lilian fue una bendición, no solo porque sus técnicas han sido muy efectivas para mí, sino porque es capaz de crear un espacio seguro donde puedes trabajar, crecer y florecer.\n\nMi vida es un antes y un después de Lilian. Es una inspiración para mí como terapeuta y como ser humano.",
+                        },
+                        {
+                            name: "Yon Mikel Zabala",
+                            photo: "assets/testimonio-yon-zabala.webp",
+                            photoFit: "contain",
+                            photoPosition: "50% 50%",
+                            photoScale: 1,
+                            photoBackdrop: "strong",
+                            prideBadge: true,
+                            context: "Consultante",
+                            excerpt:
+                                "Tomar esta terapia con Lilian es una forma agradable y quizá hasta divertida de conocerme.",
+                            fullText:
+                                "Tomar esta terapia con Lilian es una forma agradable y quizá hasta divertida de conocerme. Ha sido un proceso para descubrirme y trabajar conmigo mismo. Es una terapia muy amigable con la que me ha sido más fácil crecer. La recomiendo ampliamente como una experiencia diferente a lo convencional y de suma utilidad.",
+                        },
+                        {
                             name: "Luis Flores Valenzuela",
                             photo: "assets/testimonio-luis-flores.webp",
                             photoPosition: "50% 9%",
@@ -2938,14 +2982,17 @@
                                 "He trabajado con Lilian durante más de dos décadas, prácticamente toda mi vida adulta, y su acompañamiento ha sido una de las columnas más importantes de mi crecimiento personal.\n\nA través de la Terapia Holográfica, he podido atravesar transiciones difíciles, trabajar heridas profundas y encontrar claridad en momentos clave. Aunque gran parte de nuestras sesiones han sido a distancia —pues vivo en Canadá—, su presencia, profesionalismo y calidez siempre han sido constantes.\n\nLa Terapia Holográfica que ella practica es profunda y verdaderamente transformadora. Como psicólogo de formación, he explorado distintas corrientes y puedo decir que esta ha sido la que más impacto ha tenido en mi vida.\n\nCada sesión me deja con más paz, dirección y una sensación real de avance. Hoy tengo una vida plena, estable y en expansión, y gran parte de ello se lo debo al trabajo que he hecho con Lilian a lo largo de los años.\n\nSu guía ha sido un regalo invaluable.",
                         },
                         {
-                            name: "Cath González",
-                            photo: "assets/testimonio-cath-gonzalez.webp",
-                            photoPosition: "50% 15%",
+                            name: "Roxana Soto Ostos",
+                            photo: "assets/testimonio-roxana-soto.webp",
+                            photoFit: "contain",
+                            photoPosition: "50% 50%",
+                            photoScale: 1,
+                            photoBackdrop: "strong",
                             context: "Consultante",
                             excerpt:
-                                "Encontrar a Lilian fue una bendición. Es capaz de crear un espacio seguro donde puedes trabajar, crecer y florecer.",
+                                "Siento el cambio en cada sesión; no tengo que esperar semanas para ver resultados.",
                             fullText:
-                                "Encontrar a Lilian fue una bendición, no solo porque sus técnicas han sido muy efectivas para mí, sino porque es capaz de crear un espacio seguro donde puedes trabajar, crecer y florecer.\n\nMi vida es un antes y un después de Lilian. Es una inspiración para mí como terapeuta y como ser humano.",
+                                "Ya conocía la terapia Holographic; sin embargo, con Lilian lo experimenté a otro nivel. Siento el cambio en cada sesión, no tengo que esperar semanas para ver resultados. Se me quitaron la ansiedad y la depresión. La recomiendo ampliamente.",
                         },
                         {
                             name: "Sergio Ramírez",
@@ -3035,10 +3082,30 @@
                             fullText:
                                 "La Terapia Holográfica me ha permitido comprenderme mejor, reconocer patrones profundos y crecer de una manera más consciente y humana.",
                         },
+                        {
+                            name: "César Armando Jiménez De la Garza",
+                            photo: "assets/testimonio-cesar-jimenez.webp",
+                            photoPosition: "50% 20%",
+                            context: "Consultante",
+                            excerpt:
+                                "Tener la oportunidad de conocer Resonance hace +20 años me cambió la vida.",
+                            fullText:
+                                "Para mí, tener la oportunidad de conocer Resonance hace +20 años me cambió la vida y me ayudó a superar retos que no sabía que tenía, pero que me afectaban todos los días. Es una gran herramienta para conocerte y aprender a ser feliz.",
+                        },
+                        {
+                            name: "Pedro Soria",
+                            photo: "assets/testimonio-pedro-soria.webp",
+                            photoPosition: "50% 5%",
+                            context: "Consultante",
+                            excerpt:
+                                "Estas terapias se han convertido en un complemento fundamental en mi vida.",
+                            fullText:
+                                "Llevo más de 6 años tomando estas terapias y realmente se han convertido en un complemento fundamental en mi vida. Me han ayudado a conocerme mejor, a enfrentar y trabajar mis miedos, limitaciones y retos del día a día desde una perspectiva mucho más consciente.\n\nEl acompañamiento de Lilian ha sido clave en este proceso, brindándome herramientas, apoyo y guía para seguir creciendo tanto personal como emocionalmente. Gracias a su ayuda, cada día trabajo por ser una mejor versión de mí mismo.\n\nGracias, Lilian, por todo tu apoyo y profesionalismo.",
+                        },
                     ];
 
-                    var total = testimonials.length; // 10
-                    var pairCount = Math.ceil(total / 2); // 5 pares fijos, sin solape
+                    var total = testimonials.length; // 14
+                    var pairCount = Math.ceil(total / 2); // 7 pares fijos, sin solape
                     var pairIndex = 0;
                     var missingAssets = [];
                     var pairEl = document.getElementById("testimonialsPair");
@@ -3080,8 +3147,16 @@
                         var scale = item.photoScale || 1;
                         var alt = "Retrato de " + escapeHtml(item.name);
                         if (fit === "contain") {
+                            var containedClass =
+                                "testimonial-card-large__photo testimonial-card-large__photo--contained";
+                            if (item.photoBackdrop === "strong") {
+                                containedClass +=
+                                    " testimonial-card-large__photo--portrait-strong";
+                            }
                             return (
-                                '<div class="testimonial-card-large__photo testimonial-card-large__photo--contained" style="--testimonial-photo:url(&quot;' +
+                                '<div class="' +
+                                containedClass +
+                                '" style="--testimonial-photo:url(&quot;' +
                                 item.photo +
                                 '&quot;)">' +
                                 '<img src="' +
@@ -3115,6 +3190,10 @@
                               escapeHtml(item.context) +
                               "</span>"
                             : "";
+                        var prideBadgeHtml =
+                            item.prideBadge === true
+                                ? '<span class="testimonial-pride-badge" role="img" aria-label="Orgullo LGBTQ+">🏳️‍🌈</span>'
+                                : "";
                         return (
                             '<article class="testimonial-card-large">' +
                             photoBlockHtml(item) +
@@ -3125,6 +3204,7 @@
                             "&rdquo;</p>" +
                             '<p class="testimonial-card-large__name">' +
                             escapeHtml(item.name) +
+                            prideBadgeHtml +
                             contextHtml +
                             "</p>" +
                             '<button class="testimonial-readmore" type="button" data-testimonial-index="' +
