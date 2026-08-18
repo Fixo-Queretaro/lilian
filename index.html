@@ -1336,6 +1336,11 @@
                 margin-top: 10px;
                 text-align: center;
             }
+            .form-whatsapp-note {
+                color: #7a6672;
+                opacity: 1;
+                font-weight: 400;
+            }
             .form-honeypot {
                 position: absolute;
                 width: 1px;
@@ -1345,47 +1350,46 @@
                 clip-path: inset(50%);
                 white-space: nowrap;
             }
-            .form-separator {
-                margin: 18px 0 12px;
+            .form-secondary-cta {
+                margin-top: 22px;
                 text-align: center;
+            }
+            .form-secondary-cta p {
+                margin: 0 0 6px;
                 font-size: 0.82rem;
                 color: var(--tinta-suave);
-                position: relative;
             }
-            .whatsapp-btn {
-                width: 100%;
+            .form-secondary-cta a {
                 display: inline-flex;
                 align-items: center;
-                justify-content: center;
-                gap: 10px;
-                padding: 14px 24px;
-                border-radius: 8px;
-                background: #a23d78;
-                color: #ffffff;
-                border: 1px solid rgba(255, 255, 255, 0.18);
-                text-decoration: none;
+                gap: 6px;
+                background: none;
+                border: none;
+                padding: 0;
+                color: var(--magenta);
                 font-family: "Lato", sans-serif;
                 font-weight: 700;
-                font-size: 0.92rem;
-                letter-spacing: 0.02em;
-                transition:
-                    background 0.3s var(--ease),
-                    color 0.3s var(--ease),
-                    transform 0.3s var(--ease);
+                font-size: 0.9rem;
+                text-decoration: none;
+                transition: color 0.25s var(--ease);
             }
-            .whatsapp-btn svg {
-                width: 20px;
-                height: 20px;
-                flex-shrink: 0;
+            .form-secondary-cta a:hover,
+            .form-secondary-cta a:focus-visible {
+                color: var(--magenta-dark);
+                text-decoration: underline;
             }
-            .whatsapp-btn:hover {
-                background: #c38a43;
-                color: #2a1f26;
-                transform: translateY(-2px);
+            .form-secondary-cta__arrow {
+                display: inline-block;
+                transition: transform 0.25s var(--ease);
             }
-            .whatsapp-btn:focus-visible {
-                outline: 3px solid #c38a43;
+            .form-secondary-cta a:hover .form-secondary-cta__arrow,
+            .form-secondary-cta a:focus-visible .form-secondary-cta__arrow {
+                transform: translateX(3px);
+            }
+            .form-secondary-cta a:focus-visible {
+                outline: 3px solid var(--dorado);
                 outline-offset: 3px;
+                border-radius: 4px;
             }
             .form-status {
                 margin-top: 14px;
@@ -3145,42 +3149,35 @@
                             class="btn btn-secondary form-submit"
                             style="width: 100%; justify-content: center"
                         >
-                            SOLICITAR CONVERSACIÓN GRATUITA
+                            CONTINUAR POR WHATSAPP
                         </button>
-                        <p class="form-separator">O escríbeme directamente</p>
-                        <a
-                            class="whatsapp-btn"
-                            href="https://wa.me/525515111972?text=Hola%20Lilian,%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20una%20sesi%C3%B3n."
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Escribir a Lilian por WhatsApp"
-                        >
-                            <svg
-                                viewBox="0 0 24 24"
-                                width="20"
-                                height="20"
-                                aria-hidden="true"
-                                fill="currentColor"
+                        <p class="form-note form-whatsapp-note">
+                            Se abrirá WhatsApp con tu mensaje preparado.
+                            Podrás revisarlo antes de enviarlo.
+                        </p>
+                        <div class="form-secondary-cta">
+                            <p>¿Prefieres escribir directamente?</p>
+                            <a
+                                href="https://wa.me/525515111972?text=Hola%20Lilian,%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20una%20sesi%C3%B3n."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Escribir a Lilian por WhatsApp"
                             >
-                                <path
-                                    d="M17.5 14.4c-.3-.1-1.6-.8-1.8-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s1 2.4 1.1 2.6c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"
-                                /><path
-                                    d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.2L2 22l4.9-1.4C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.9.8-3-.2-.3C4.1 14.9 3.7 13.5 3.7 12 3.7 7.5 7.5 3.7 12 3.7S20.3 7.5 20.3 12 16.5 20.2 12 20.2z"
-                                />
-                            </svg>
-                            <span>Escríbeme por WhatsApp</span>
-                        </a>
+                                Escríbeme por WhatsApp
+                                <span
+                                    class="form-secondary-cta__arrow"
+                                    aria-hidden="true"
+                                    >→</span
+                                >
+                            </a>
+                        </div>
                         <p
                             class="form-status"
                             id="formStatus"
                             aria-live="polite"
                         ></p>
                         <p class="form-privacy">
-                            Tus datos se utilizarán únicamente para responder
-                            a tu solicitud.
-                        </p>
-                        <p class="form-note">
-                            También puedes escribir a lilianas30@yahoo.com.mx
+                            Tus datos no se almacenan en este sitio.
                         </p>
                     </form>
                 </div>
@@ -4083,50 +4080,22 @@
             })();
 
             // ============================================================
-            // FORMULARIO DE CONTACTO — envío real vía fetch() + honeypot.
-            // No usa mailto, no recarga la página, no usa alert().
+            // FORMULARIO DE CONTACTO — genera un mensaje para WhatsApp.
+            // No hay backend, no hay endpoint, no hay fetch().
+            // No recarga la página, no usa alert(), conserva el honeypot.
             // ============================================================
             (function initContactForm() {
                 try {
                     var form = document.getElementById("contactForm");
                     if (!form) return;
 
-                    // Pendiente: sustituir FORM_ENDPOINT por el endpoint real del formulario.
-                    var FORM_ENDPOINT = "PEGAR_AQUÍ_ENDPOINT_REAL";
-
-                    var statusEl = document.getElementById("formStatus");
-                    var submitBtn = form.querySelector(".form-submit");
-                    var isSubmitting = false;
-
-                    var SUCCESS_MSG =
-                        "Gracias por escribir. Lilian se pondrá en contacto contigo lo antes posible.";
-                    var ERROR_MSG =
-                        "No fue posible enviar tu mensaje. Inténtalo nuevamente o escríbenos por WhatsApp.";
-                    var ENDPOINT_MISSING_MSG =
-                        "El formulario estará disponible próximamente. Mientras tanto, puedes escribir directamente por WhatsApp.";
-
-                    function setStatus(message, type) {
-                        if (!statusEl) return;
-                        statusEl.textContent = message;
-                        statusEl.classList.remove("is-success", "is-error");
-                        if (type) statusEl.classList.add(type);
-                    }
-
-                    function setSubmitting(submitting) {
-                        isSubmitting = submitting;
-                        if (!submitBtn) return;
-                        submitBtn.disabled = submitting;
-                        submitBtn.textContent = submitting
-                            ? "ENVIANDO…"
-                            : "SOLICITAR CONVERSACIÓN GRATUITA";
-                    }
+                    var WHATSAPP_NUMBER = "525515111972";
 
                     form.addEventListener("submit", function (e) {
                         e.preventDefault();
-                        if (isSubmitting) return;
 
                         // Honeypot: si el campo oculto tiene contenido, es un bot.
-                        // Se cancela el envío silenciosamente, sin mostrar error.
+                        // Se cancela silenciosamente, sin abrir WhatsApp.
                         var honeypot = form.querySelector(
                             'input[name="website"]',
                         );
@@ -4139,39 +4108,49 @@
                             return;
                         }
 
-                        if (
-                            !FORM_ENDPOINT ||
-                            FORM_ENDPOINT === "PEGAR_AQUÍ_ENDPOINT_REAL"
-                        ) {
-                            setStatus(ENDPOINT_MISSING_MSG, "is-error");
-                            return;
+                        var nombreField = form.querySelector("#nombre");
+                        var emailField = form.querySelector("#email");
+                        var motivoField = form.querySelector("#motivo");
+
+                        var nombre = nombreField
+                            ? nombreField.value.trim()
+                            : "";
+                        var email = emailField ? emailField.value.trim() : "";
+                        var motivo = motivoField
+                            ? motivoField.value.trim()
+                            : "";
+
+                        var message =
+                            "Hola Lilian 💜\n\n" +
+                            "Mi nombre es " +
+                            nombre +
+                            ".\n\n" +
+                            "Te contacto desde terapiaholografica.com porque me gustaría solicitar una primera conversación.\n\n" +
+                            "Correo: " +
+                            email +
+                            "\n\n" +
+                            "Lo que me gustaría trabajar:\n" +
+                            motivo +
+                            "\n\n" +
+                            "Quedo atento(a) para coordinar contigo. Gracias.";
+
+                        var whatsappUrl =
+                            "https://wa.me/" +
+                            WHATSAPP_NUMBER +
+                            "?text=" +
+                            encodeURIComponent(message);
+
+                        var newTab = window.open(
+                            whatsappUrl,
+                            "_blank",
+                            "noopener,noreferrer",
+                        );
+
+                        // Fallback: si el navegador bloqueó la ventana emergente,
+                        // navega en la misma pestaña.
+                        if (!newTab) {
+                            window.location.href = whatsappUrl;
                         }
-
-                        setSubmitting(true);
-                        setStatus("", null);
-
-                        var formData = new FormData(form);
-
-                        fetch(FORM_ENDPOINT, {
-                            method: "POST",
-                            body: formData,
-                            headers: { Accept: "application/json" },
-                        })
-                            .then(function (response) {
-                                if (!response.ok) {
-                                    throw new Error(
-                                        "Respuesta no exitosa del servidor",
-                                    );
-                                }
-                                setStatus(SUCCESS_MSG, "is-success");
-                                form.reset();
-                            })
-                            .catch(function () {
-                                setStatus(ERROR_MSG, "is-error");
-                            })
-                            .then(function () {
-                                setSubmitting(false);
-                            });
                     });
                 } catch (err) {
                     // Fallo silencioso: el formulario nativo sigue siendo visible sin esta mejora.
