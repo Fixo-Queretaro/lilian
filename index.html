@@ -904,6 +904,306 @@
                 margin-top: 2px;
             }
 
+            /* ============ FORMACIÓN Y TRAYECTORIA ============ */
+            #formacion {
+                background: var(--marfil-2);
+            }
+            .formacion-intro {
+                max-width: 720px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .formacion-intro-secondary {
+                max-width: 640px;
+                margin: 14px auto 0;
+                font-size: 0.96rem;
+            }
+            .formacion-timeline {
+                list-style: none;
+                margin: 52px 0 0;
+                padding: 0;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 28px;
+            }
+            @media (max-width: 900px) {
+                .formacion-timeline {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+            @media (max-width: 600px) {
+                .formacion-timeline {
+                    grid-template-columns: 1fr;
+                }
+            }
+            .formacion-timeline__item {
+                background: #ffffff;
+                border-radius: 14px;
+                padding: 26px 24px;
+                box-shadow: 0 8px 22px rgba(42, 31, 38, 0.07);
+                border-top: 3px solid var(--dorado);
+            }
+            .formacion-timeline__year {
+                display: inline-block;
+                font-family: "Playfair Display", serif;
+                font-weight: 600;
+                font-size: 1.3rem;
+                color: var(--magenta);
+                margin-bottom: 10px;
+            }
+            .formacion-timeline__body h3 {
+                font-size: 1.02rem;
+                margin-bottom: 6px;
+                line-height: 1.35;
+            }
+            .formacion-timeline__body p {
+                font-size: 0.86rem;
+                margin-bottom: 0;
+                color: var(--tinta-suave);
+            }
+            .formacion-cta {
+                margin-top: 46px;
+                text-align: center;
+            }
+            .flor-formacion {
+                top: -6%;
+                right: -6%;
+                width: 22%;
+                z-index: 1;
+            }
+            @media (max-width: 900px) {
+                .flor-formacion {
+                    width: 30%;
+                    top: -4%;
+                    right: -8%;
+                }
+            }
+
+            /* ---------- Galería / lightbox de formación ---------- */
+            .formacion-gallery {
+                position: fixed;
+                inset: 0;
+                z-index: 210;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 24px;
+            }
+            .formacion-gallery[hidden] {
+                display: none;
+            }
+            .formacion-gallery-backdrop {
+                position: absolute;
+                inset: 0;
+                background: rgba(29, 19, 25, 0.78);
+                opacity: 0;
+                transition: opacity 0.3s var(--ease);
+            }
+            .formacion-gallery.is-open .formacion-gallery-backdrop {
+                opacity: 1;
+            }
+            .formacion-gallery-dialog {
+                position: relative;
+                background: var(--marfil-2);
+                border-radius: 20px;
+                max-width: 920px;
+                width: 100%;
+                max-height: 88vh;
+                overflow-y: auto;
+                box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+                padding: 44px 40px;
+                opacity: 0;
+                transform: translateY(14px) scale(0.98);
+                transition:
+                    opacity 0.3s var(--ease),
+                    transform 0.3s var(--ease);
+            }
+            .formacion-gallery.is-open .formacion-gallery-dialog {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            @media (max-width: 640px) {
+                .formacion-gallery-dialog {
+                    padding: 30px 20px;
+                }
+            }
+            .formacion-gallery-close {
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                border: none;
+                background: var(--marfil);
+                color: var(--tinta);
+                font-size: 1.3rem;
+                line-height: 1;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.3s var(--ease);
+                z-index: 2;
+            }
+            .formacion-gallery-close:hover {
+                background: var(--dorado);
+            }
+            .formacion-gallery-close:focus-visible {
+                outline: 3px solid var(--dorado);
+                outline-offset: 2px;
+            }
+            .formacion-gallery-note {
+                font-size: 0.92rem;
+                margin: 6px 0 0;
+                color: var(--tinta-suave);
+            }
+            .formacion-gallery-group {
+                margin-top: 30px;
+            }
+            .formacion-gallery-group-title {
+                font-family: "Lato", sans-serif;
+                font-weight: 700;
+                font-size: 0.82rem;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: var(--tinta);
+                margin: 0 0 16px;
+                padding-bottom: 8px;
+                border-bottom: 1px solid var(--linea);
+            }
+            .formacion-gallery-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 16px;
+            }
+            .formacion-gallery-thumb {
+                background: none;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                text-align: left;
+                border-radius: 10px;
+                overflow: hidden;
+                transition: transform 0.25s var(--ease);
+            }
+            .formacion-gallery-thumb:hover {
+                transform: translateY(-3px);
+            }
+            .formacion-gallery-thumb:focus-visible {
+                outline: 3px solid var(--dorado);
+                outline-offset: 2px;
+            }
+            .formacion-gallery-thumb img {
+                width: 100%;
+                aspect-ratio: 4 / 5;
+                object-fit: cover;
+                display: block;
+                border-radius: 10px;
+                box-shadow: 0 6px 16px rgba(42, 31, 38, 0.14);
+            }
+            .formacion-gallery-thumb-caption {
+                display: block;
+                font-size: 0.76rem;
+                line-height: 1.35;
+                margin-top: 8px;
+                color: var(--tinta-suave);
+            }
+            .formacion-gallery-thumb-caption strong {
+                display: block;
+                color: var(--tinta);
+                font-weight: 700;
+            }
+            .formacion-gallery-back {
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: var(--magenta);
+                font-weight: 700;
+                font-size: 0.88rem;
+                padding: 0 0 20px;
+            }
+            .formacion-gallery-detail {
+                display: grid;
+                grid-template-columns: 0.9fr 1.1fr;
+                gap: 32px;
+                align-items: start;
+            }
+            @media (max-width: 700px) {
+                .formacion-gallery-detail {
+                    grid-template-columns: 1fr;
+                }
+            }
+            .formacion-gallery-detail-image img {
+                width: 100%;
+                border-radius: 12px;
+                box-shadow: 0 10px 28px rgba(42, 31, 38, 0.18);
+                display: block;
+            }
+            .formacion-gallery-detail-year {
+                display: inline-block;
+                font-family: "Playfair Display", serif;
+                font-weight: 600;
+                font-size: 1.1rem;
+                color: var(--magenta);
+                margin-bottom: 8px;
+            }
+            .formacion-gallery-detail-info h3 {
+                font-size: 1.25rem;
+                margin-bottom: 8px;
+            }
+            .formacion-gallery-detail-info p {
+                font-size: 0.94rem;
+                margin-bottom: 8px;
+            }
+            .formacion-gallery-detail-info .formacion-gallery-detail-meta {
+                color: var(--tinta-suave);
+                font-size: 0.86rem;
+            }
+            .formacion-gallery-detail-nav {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                margin-top: 28px;
+            }
+            .formacion-gallery-detail-nav button {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                border: 1.5px solid var(--linea);
+                background: var(--marfil);
+                color: var(--tinta);
+                font-size: 1.2rem;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition:
+                    background 0.25s var(--ease),
+                    border-color 0.25s var(--ease);
+            }
+            .formacion-gallery-detail-nav button:hover {
+                background: var(--dorado);
+                border-color: var(--dorado);
+            }
+            .formacion-gallery-detail-nav button:focus-visible {
+                outline: 3px solid var(--dorado);
+                outline-offset: 2px;
+            }
+            .formacion-gallery-detail-nav span {
+                font-size: 0.84rem;
+                color: var(--tinta-suave);
+                min-width: 60px;
+                text-align: center;
+            }
+            @media (prefers-reduced-motion: reduce) {
+                .formacion-gallery-dialog,
+                .formacion-gallery-backdrop {
+                    transition: none !important;
+                }
+            }
+
             /* ============ FAQ ============ */
             .faq-list {
                 max-width: 800px;
@@ -2352,6 +2652,197 @@
                 </div>
             </section>
 
+            <!-- ============ FORMACIÓN Y TRAYECTORIA ============ -->
+            <section id="formacion">
+                <div class="wrap">
+                    <p class="eyebrow center">
+                        Más de dos décadas de estudio y acompañamiento
+                    </p>
+                    <h2 class="center">Formación y trayectoria</h2>
+                    <p class="lede formacion-intro center">
+                        A lo largo de su trayectoria, Lilian ha complementado
+                        su formación en Holographic Repatterning® y Resonance
+                        Repatterning® con estudios en distintas herramientas
+                        de acompañamiento humano, emocional y sistémico.
+                    </p>
+                    <p class="formacion-intro-secondary center">
+                        Su formación incluye diplomados, certificaciones,
+                        cursos y talleres realizados a lo largo de más de dos
+                        décadas, con un proceso continuo de actualización
+                        profesional.
+                    </p>
+
+                    <ol class="formacion-timeline">
+                        <li class="formacion-timeline__item">
+                            <span class="formacion-timeline__year">2002</span>
+                            <div class="formacion-timeline__body">
+                                <h3>
+                                    Facilitadora certificada en Holographic
+                                    Repatterning® y Resonance Repatterning®
+                                </h3>
+                                <p>
+                                    The Holographic Repatterning® Association
+                                    · R.R. Asociación Educativa, A.C.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="formacion-timeline__item">
+                            <span class="formacion-timeline__year">2006</span>
+                            <div class="formacion-timeline__body">
+                                <h3>Diplomado en Tanatología</h3>
+                                <p>
+                                    Escuela de Enfermería del ISSSTE, A.C. ·
+                                    UNAM, Facultad de Estudios Superiores
+                                    Zaragoza
+                                </p>
+                            </div>
+                        </li>
+                        <li class="formacion-timeline__item">
+                            <span class="formacion-timeline__year">2013</span>
+                            <div class="formacion-timeline__body">
+                                <h3>
+                                    Diplomado en Sistemas Familiares y
+                                    Organizacionales
+                                </h3>
+                                <p>
+                                    Universidad Tecnológica de Terapias
+                                    Profesionales
+                                </p>
+                            </div>
+                        </li>
+                        <li class="formacion-timeline__item">
+                            <span class="formacion-timeline__year"
+                                >2015–2016</span
+                            >
+                            <div class="formacion-timeline__body">
+                                <h3>
+                                    Formación en Descodificación Biológica
+                                    México
+                                </h3>
+                                <p>Consciencia Genosomática</p>
+                            </div>
+                        </li>
+                        <li class="formacion-timeline__item">
+                            <span class="formacion-timeline__year">2017</span>
+                            <div class="formacion-timeline__body">
+                                <h3>Psicogenealogía Integrativa</h3>
+                                <p>Consciencia Genosomática</p>
+                            </div>
+                        </li>
+                        <li class="formacion-timeline__item">
+                            <span class="formacion-timeline__year">2021</span>
+                            <div class="formacion-timeline__body">
+                                <h3>
+                                    Actualización en Trauma del Desarrollo,
+                                    EMDR y Psicotraumatología
+                                </h3>
+                                <p>Newman Institute</p>
+                            </div>
+                        </li>
+                    </ol>
+
+                    <div class="formacion-cta">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            id="formacionGalleryOpen"
+                            aria-haspopup="dialog"
+                        >
+                            Ver formación y certificaciones
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flor flor-formacion" data-breathe="breathe-tiny">
+                    <img src="assets/bordado-ramo.png" alt="" />
+                </div>
+            </section>
+
+            <!-- Galería / lightbox de formación -->
+            <div class="formacion-gallery" id="formacionGallery" hidden>
+                <div
+                    class="formacion-gallery-backdrop"
+                    data-formacion-close
+                ></div>
+                <div
+                    class="formacion-gallery-dialog"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="formacionGalleryTitle"
+                >
+                    <button
+                        class="formacion-gallery-close"
+                        type="button"
+                        data-formacion-close
+                        aria-label="Cerrar"
+                    >
+                        ×
+                    </button>
+
+                    <div
+                        class="formacion-gallery-grid-view"
+                        id="formacionGridView"
+                    >
+                        <p class="eyebrow" id="formacionGalleryTitle">
+                            Formación y certificaciones
+                        </p>
+                        <p class="formacion-gallery-note">
+                            Documentos originales de cada formación. Haz clic
+                            en cualquiera para verlo en detalle.
+                        </p>
+                        <div id="formacionGalleryGroups"></div>
+                    </div>
+
+                    <div
+                        class="formacion-gallery-detail-view"
+                        id="formacionDetailView"
+                        hidden
+                    >
+                        <button
+                            type="button"
+                            class="formacion-gallery-back"
+                            id="formacionBackBtn"
+                        >
+                            ‹ Volver a la lista
+                        </button>
+                        <div class="formacion-gallery-detail">
+                            <div class="formacion-gallery-detail-image">
+                                <img id="formacionDetailImg" src="" alt="" />
+                            </div>
+                            <div class="formacion-gallery-detail-info">
+                                <span
+                                    class="formacion-gallery-detail-year"
+                                    id="formacionDetailYear"
+                                ></span>
+                                <h3 id="formacionDetailTitle"></h3>
+                                <p id="formacionDetailInstitution"></p>
+                                <p
+                                    class="formacion-gallery-detail-meta"
+                                    id="formacionDetailMeta"
+                                ></p>
+                            </div>
+                        </div>
+                        <div class="formacion-gallery-detail-nav">
+                            <button
+                                type="button"
+                                id="formacionPrevBtn"
+                                aria-label="Documento anterior"
+                            >
+                                ‹
+                            </button>
+                            <span id="formacionDetailCounter"></span>
+                            <button
+                                type="button"
+                                id="formacionNextBtn"
+                                aria-label="Documento siguiente"
+                            >
+                                ›
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- ============ TESTIMONIOS ============ -->
             <!-- ============ TESTIMONIOS — carrusel circular de 7 pares (14) ============ -->
             <section id="testimonios" class="testimonials-section">
@@ -3685,6 +4176,467 @@
                 } catch (err) {
                     // Fallo silencioso: el formulario nativo sigue siendo visible sin esta mejora.
                 }
+            })();
+        </script>
+
+        <!-- ============ FORMACIÓN Y TRAYECTORIA — datos y galería ============ -->
+        <script>
+            (function () {
+                var formacionData = [
+                    {
+                        year: "2002",
+                        title:
+                            "Facilitadora certificada de Resonance Repatterning®",
+                        institution:
+                            "R.R. Asociación Educativa, A.C. — Instituto de Resonance Repatterning México",
+                        type: "Certificación",
+                        category: "hr-rr",
+                        thumb:
+                            "assets/formacion/thumbs/resonance-repatterning-2002.webp",
+                        image:
+                            "assets/formacion/full/resonance-repatterning-2002.webp",
+                    },
+                    {
+                        year: "2002",
+                        title:
+                            "Facilitadora certificada Nivel 2 de Holographic Repatterning®",
+                        institution:
+                            "The Holographic Repatterning® Association",
+                        type: "Certificación",
+                        category: "hr-rr",
+                        thumb:
+                            "assets/formacion/thumbs/holographic-repatterning-nivel2-2002.webp",
+                        image:
+                            "assets/formacion/full/holographic-repatterning-nivel2-2002.webp",
+                    },
+                    {
+                        year: "2003",
+                        title:
+                            'Seminario "Manifiesta tu Poder con Holographic Repatterning"',
+                        institution:
+                            "The Holographic Repatterning® Association",
+                        type: "Diploma de asistencia",
+                        category: "hr-rr",
+                        thumb:
+                            "assets/formacion/thumbs/holographic-repatterning-seminario-2003.webp",
+                        image:
+                            "assets/formacion/full/holographic-repatterning-seminario-2003.webp",
+                    },
+                    {
+                        year: "2019",
+                        title:
+                            "Certificado de capacitación y práctica profesional",
+                        institution: "R.R. Asociación Educativa, A.C.",
+                        type: "Certificado",
+                        category: "hr-rr",
+                        meta: "Registro STPS: RAE120124LH0-0013",
+                        thumb:
+                            "assets/formacion/thumbs/rr-asociacion-educativa-2019.webp",
+                        image:
+                            "assets/formacion/full/rr-asociacion-educativa-2019.webp",
+                    },
+                    {
+                        year: "2003",
+                        title: "Kinesiología Holística — Módulo I",
+                        institution: "Centro de Kinesiología Holística",
+                        type: "Diploma",
+                        category: "complementaria",
+                        meta:
+                            "16 horas · Impartido por la Dra. Ma. Marisela Rodríguez Pérez",
+                        thumb:
+                            "assets/formacion/thumbs/kinesiologia-holistica-modulo1-2003.webp",
+                        image:
+                            "assets/formacion/full/kinesiologia-holistica-modulo1-2003.webp",
+                    },
+                    {
+                        year: "2003",
+                        title: "Kinesiología Holística — Módulo II",
+                        institution: "Centro de Kinesiología Holística",
+                        type: "Constancia",
+                        category: "complementaria",
+                        meta:
+                            "16 horas · Impartido por la Dra. Ma. Marisela Rodríguez Pérez",
+                        thumb:
+                            "assets/formacion/thumbs/kinesiologia-holistica-modulo2-2003.webp",
+                        image:
+                            "assets/formacion/full/kinesiologia-holistica-modulo2-2003.webp",
+                    },
+                    {
+                        year: "2006",
+                        title: "Diplomado de Tanatología",
+                        institution:
+                            "Escuela de Enfermería del ISSSTE, A.C. — Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado",
+                        type: "Diploma",
+                        category: "complementaria",
+                        meta: "205 horas",
+                        thumb:
+                            "assets/formacion/thumbs/tanatologia-issste-2006.webp",
+                        image:
+                            "assets/formacion/full/tanatologia-issste-2006.webp",
+                    },
+                    {
+                        year: "2006",
+                        title:
+                            "Diplomado en Tanatología (actualización profesional)",
+                        institution:
+                            "UNAM — Facultad de Estudios Superiores Zaragoza",
+                        type: "Diploma",
+                        category: "complementaria",
+                        meta: "200 horas",
+                        thumb:
+                            "assets/formacion/thumbs/tanatologia-unam-2006.webp",
+                        image:
+                            "assets/formacion/full/tanatologia-unam-2006.webp",
+                    },
+                    {
+                        year: "2013",
+                        title: 'Diplomado "Relación de Pareja Plena"',
+                        institution:
+                            "Universidad Tecnológica de Terapias Profesionales",
+                        type: "Diploma",
+                        category: "complementaria",
+                        meta: "228 horas · Registro SEP: 17DEX31412",
+                        thumb:
+                            "assets/formacion/thumbs/relacion-pareja-plena-2013.webp",
+                        image:
+                            "assets/formacion/full/relacion-pareja-plena-2013.webp",
+                    },
+                    {
+                        year: "2013",
+                        title:
+                            'Diplomado "Sistemas Familiares y Organizacionales"',
+                        institution:
+                            "Universidad Tecnológica de Terapias Profesionales",
+                        type: "Diploma",
+                        category: "complementaria",
+                        meta: "274 horas · Registro SEP: 17DEX31312",
+                        thumb:
+                            "assets/formacion/thumbs/sistemas-familiares-organizacionales-2013.webp",
+                        image:
+                            "assets/formacion/full/sistemas-familiares-organizacionales-2013.webp",
+                    },
+                    {
+                        year: "2015",
+                        title: 'Taller "Límites, Territorio, Identidad"',
+                        institution:
+                            "Descodificación Biológica México — Consciencia Genosomática",
+                        type: "Constancia de participación",
+                        category: "complementaria",
+                        meta: "Impartido por Marie Jo Dal Zotto",
+                        thumb:
+                            "assets/formacion/thumbs/taller-limites-territorio-identidad-2015.webp",
+                        image:
+                            "assets/formacion/full/taller-limites-territorio-identidad-2015.webp",
+                    },
+                    {
+                        year: "2015",
+                        title:
+                            "Certificado de Consejero en Descodificación Biológica México",
+                        institution:
+                            "Descodificación Biológica México — Consciencia Genosomática",
+                        type: "Certificado",
+                        category: "complementaria",
+                        meta:
+                            "120 horas · 5 módulos · Impartido por Catherine Fauconnier",
+                        thumb:
+                            "assets/formacion/thumbs/consejero-descodificacion-biologica-2015.webp",
+                        image:
+                            "assets/formacion/full/consejero-descodificacion-biologica-2015.webp",
+                    },
+                    {
+                        year: "2016",
+                        title: 'Taller "El Contacto: carencia o exceso"',
+                        institution:
+                            "Descodificación Biológica México — Consciencia Genosomática",
+                        type: "Constancia de participación",
+                        category: "complementaria",
+                        meta: "Impartido por Catherine Fauconnier",
+                        thumb:
+                            "assets/formacion/thumbs/taller-el-contacto-2016.webp",
+                        image:
+                            "assets/formacion/full/taller-el-contacto-2016.webp",
+                    },
+                    {
+                        year: "2016",
+                        title:
+                            "Constancia de asistencia — 2° ciclo de Descodificación Biológica México",
+                        institution: "Consciencia Genosomática",
+                        type: "Constancia de asistencia",
+                        category: "complementaria",
+                        meta:
+                            "6 módulos · Impartido por Catherine Fauconnier",
+                        thumb:
+                            "assets/formacion/thumbs/descodificacion-biologica-asistencia-2016.webp",
+                        image:
+                            "assets/formacion/full/descodificacion-biologica-asistencia-2016.webp",
+                    },
+                    {
+                        year: "s/f",
+                        title:
+                            'Taller "El rencor y la traición: construcción y manifestación sintomática"',
+                        institution:
+                            "Descodificación Biológica México — Consciencia Genosomática",
+                        type: "Constancia de participación",
+                        category: "complementaria",
+                        meta:
+                            "Impartido por Marie Jo Dal Zotto · Fecha no visible en el documento original",
+                        thumb:
+                            "assets/formacion/thumbs/taller-rencor-traicion.webp",
+                        image:
+                            "assets/formacion/full/taller-rencor-traicion.webp",
+                    },
+                    {
+                        year: "2017",
+                        title:
+                            "Psicogenealogía Integrativa con Consciencia Genosomática — Nivel I",
+                        institution: "Consciencia Genosomática",
+                        type: "Constancia",
+                        category: "complementaria",
+                        meta:
+                            "72 horas · 6 módulos · Impartido por Catherine Fauconnier",
+                        thumb:
+                            "assets/formacion/thumbs/psicogenealogia-integrativa-2017.webp",
+                        image:
+                            "assets/formacion/full/psicogenealogia-integrativa-2017.webp",
+                    },
+                    {
+                        year: "2021",
+                        title: "Psicotraumatología Nivel CCPT-I",
+                        institution: "Newman Institute",
+                        type: "Diploma",
+                        category: "complementaria",
+                        meta: "45 horas",
+                        thumb:
+                            "assets/formacion/thumbs/psicotraumatologia-cctp1-2021.webp",
+                        image:
+                            "assets/formacion/full/psicotraumatologia-cctp1-2021.webp",
+                    },
+                    {
+                        year: "2021",
+                        title: "Tratamiento Intensivo con EMDR",
+                        institution: "Newman Institute",
+                        type: "Certificado de participación",
+                        category: "complementaria",
+                        meta: "Programa de Educación Continua MasterClass Plus",
+                        thumb:
+                            "assets/formacion/thumbs/emdr-tratamiento-intensivo-2021.webp",
+                        image:
+                            "assets/formacion/full/emdr-tratamiento-intensivo-2021.webp",
+                    },
+                    {
+                        year: "2021",
+                        title: "Trauma del Desarrollo",
+                        institution: "Newman Institute",
+                        type: "Certificado de participación",
+                        category: "complementaria",
+                        meta: "Programa de Educación Continua MasterClass Plus",
+                        thumb:
+                            "assets/formacion/thumbs/trauma-desarrollo-2021.webp",
+                        image:
+                            "assets/formacion/full/trauma-desarrollo-2021.webp",
+                    },
+                ];
+
+                var openBtn = document.getElementById("formacionGalleryOpen");
+                var modal = document.getElementById("formacionGallery");
+                if (!openBtn || !modal) return;
+
+                var gridView = document.getElementById("formacionGridView");
+                var detailView = document.getElementById(
+                    "formacionDetailView",
+                );
+                var groupsWrap = document.getElementById(
+                    "formacionGalleryGroups",
+                );
+                var backBtn = document.getElementById("formacionBackBtn");
+                var prevBtn = document.getElementById("formacionPrevBtn");
+                var nextBtn = document.getElementById("formacionNextBtn");
+                var detailImg = document.getElementById("formacionDetailImg");
+                var detailYear = document.getElementById(
+                    "formacionDetailYear",
+                );
+                var detailTitle = document.getElementById(
+                    "formacionDetailTitle",
+                );
+                var detailInstitution = document.getElementById(
+                    "formacionDetailInstitution",
+                );
+                var detailMeta = document.getElementById(
+                    "formacionDetailMeta",
+                );
+                var detailCounter = document.getElementById(
+                    "formacionDetailCounter",
+                );
+
+                function escapeHtml(str) {
+                    return String(str)
+                        .replace(/&/g, "&amp;")
+                        .replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;")
+                        .replace(/"/g, "&quot;");
+                }
+
+                var groupLabels = {
+                    "hr-rr":
+                        "Resonance Repatterning® y Holographic Repatterning®",
+                    complementaria: "Formación complementaria",
+                };
+                var groupOrder = ["hr-rr", "complementaria"];
+                var flatList = [];
+
+                groupOrder.forEach(function (cat) {
+                    var items = formacionData.filter(function (d) {
+                        return d.category === cat;
+                    });
+                    if (!items.length) return;
+
+                    var groupEl = document.createElement("div");
+                    groupEl.className = "formacion-gallery-group";
+                    var titleEl = document.createElement("p");
+                    titleEl.className = "formacion-gallery-group-title";
+                    titleEl.textContent = groupLabels[cat] || cat;
+                    groupEl.appendChild(titleEl);
+
+                    var gridEl = document.createElement("div");
+                    gridEl.className = "formacion-gallery-grid";
+
+                    items.forEach(function (item) {
+                        var idx = flatList.length;
+                        flatList.push(item);
+
+                        var btn = document.createElement("button");
+                        btn.type = "button";
+                        btn.className = "formacion-gallery-thumb";
+                        btn.setAttribute("data-index", idx);
+                        btn.innerHTML =
+                            '<img src="' +
+                            item.thumb +
+                            '" alt="' +
+                            escapeHtml(item.title) +
+                            '" loading="lazy">' +
+                            '<span class="formacion-gallery-thumb-caption"><strong>' +
+                            escapeHtml(item.title) +
+                            "</strong>" +
+                            escapeHtml(item.year) +
+                            " · " +
+                            escapeHtml(item.type) +
+                            "</span>";
+                        btn.addEventListener("click", function () {
+                            openDetail(idx);
+                        });
+                        gridEl.appendChild(btn);
+                    });
+
+                    groupEl.appendChild(gridEl);
+                    groupsWrap.appendChild(groupEl);
+                });
+
+                var currentIndex = 0;
+                var lastTrigger = null;
+                var bodyOverflowPrev = "";
+
+                function renderDetail(idx) {
+                    var item = flatList[idx];
+                    if (!item) return;
+                    detailImg.src = item.image;
+                    detailImg.alt = "Documento: " + item.title;
+                    detailYear.textContent = item.year;
+                    detailTitle.textContent = item.title;
+                    detailInstitution.textContent = item.institution;
+                    detailMeta.textContent = [item.type, item.meta]
+                        .filter(Boolean)
+                        .join(" · ");
+                    detailCounter.textContent =
+                        idx + 1 + " / " + flatList.length;
+                }
+
+                function openDetail(idx) {
+                    currentIndex = idx;
+                    renderDetail(currentIndex);
+                    gridView.hidden = true;
+                    detailView.hidden = false;
+                }
+
+                function showGrid() {
+                    detailView.hidden = true;
+                    gridView.hidden = false;
+                }
+
+                backBtn.addEventListener("click", showGrid);
+                prevBtn.addEventListener("click", function () {
+                    currentIndex =
+                        (currentIndex - 1 + flatList.length) %
+                        flatList.length;
+                    renderDetail(currentIndex);
+                });
+                nextBtn.addEventListener("click", function () {
+                    currentIndex = (currentIndex + 1) % flatList.length;
+                    renderDetail(currentIndex);
+                });
+
+                function openModal() {
+                    lastTrigger = openBtn;
+                    showGrid();
+                    modal.hidden = false;
+                    bodyOverflowPrev = document.body.style.overflow;
+                    document.body.style.overflow = "hidden";
+                    requestAnimationFrame(function () {
+                        modal.classList.add("is-open");
+                    });
+                    var closeBtn = modal.querySelector(
+                        ".formacion-gallery-close",
+                    );
+                    if (closeBtn) closeBtn.focus();
+                    document.addEventListener("keydown", onKeydown);
+                }
+
+                function closeModal() {
+                    modal.classList.remove("is-open");
+                    document.body.style.overflow = bodyOverflowPrev;
+                    document.removeEventListener("keydown", onKeydown);
+                    window.setTimeout(function () {
+                        modal.hidden = true;
+                    }, 320);
+                    if (
+                        lastTrigger &&
+                        typeof lastTrigger.focus === "function"
+                    ) {
+                        lastTrigger.focus();
+                    }
+                }
+
+                function onKeydown(e) {
+                    if (e.key === "Escape" || e.key === "Esc") {
+                        closeModal();
+                        return;
+                    }
+                    if (e.key === "Tab") {
+                        var focusable = modal.querySelectorAll(
+                            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+                        );
+                        if (!focusable.length) return;
+                        var first = focusable[0],
+                            last = focusable[focusable.length - 1];
+                        if (e.shiftKey && document.activeElement === first) {
+                            e.preventDefault();
+                            last.focus();
+                        } else if (
+                            !e.shiftKey &&
+                            document.activeElement === last
+                        ) {
+                            e.preventDefault();
+                            first.focus();
+                        }
+                    }
+                }
+
+                openBtn.addEventListener("click", openModal);
+                var closeEls = modal.querySelectorAll(
+                    "[data-formacion-close]",
+                );
+                Array.prototype.forEach.call(closeEls, function (el) {
+                    el.addEventListener("click", closeModal);
+                });
             })();
         </script>
     </body>
