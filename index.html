@@ -6,6 +6,11 @@
         <title>
             Lilian Altamirano — Terapia Holográfica · Resonance Repatterning®
         </title>
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+        <link rel="icon" href="/assets/favicon/favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+        <meta name="theme-color" content="#3B2340">
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -32,10 +37,21 @@
                 --motion-scale: 1;
                 --px: 0px;
                 --py: 0px;
+                --header-h: 75px;
             }
             @media (max-width: 768px) {
                 :root {
                     --motion-scale: 0.5;
+                }
+            }
+            @media (min-width: 768px) {
+                :root {
+                    --header-h: 81px;
+                }
+            }
+            @media (min-width: 1200px) {
+                :root {
+                    --header-h: 89px;
                 }
             }
             *,
@@ -81,6 +97,16 @@
                 .wrap {
                     padding: 0 22px;
                 }
+            }
+            /* Header fijo (no sticky): compensa el espacio que el header ya
+               no reserva en el flujo normal del documento. */
+            main#top {
+                padding-top: var(--header-h);
+            }
+            /* Evita que el título de cada sección quede tapado por el
+               header fijo al navegar por anclas del menú. */
+            section[id] {
+                scroll-margin-top: calc(var(--header-h) + 16px);
             }
             section {
                 padding: 110px 0;
@@ -219,8 +245,11 @@
 
             /* ============ HEADER ============ */
             header.site {
-                position: sticky;
+                position: fixed;
                 top: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
                 z-index: 100;
                 background: rgba(29, 19, 25, 0.92);
                 backdrop-filter: blur(10px);
@@ -341,11 +370,11 @@
             @media (max-width: 900px) {
                 nav.links {
                     position: fixed;
-                    top: 64px;
+                    top: var(--header-h);
                     left: 0;
                     right: 0;
                     bottom: 0;
-                    height: calc(100vh - 64px);
+                    height: calc(100vh - var(--header-h));
                     margin: 0;
                     background: var(--fondo-oscuro);
                     flex-direction: column;
@@ -2060,7 +2089,7 @@
                     <a href="#que-es">Terapia Holográfica</a>
                     <a href="#como-funciona">Sesiones</a>
                     <a href="#testimonios">Testimonios</a>
-                    <a href="#faq">Contacto</a>
+                    <a href="#agenda">Contacto</a>
                     <a class="btn btn-primary" href="#agenda">AGENDAR SESIÓN</a>
                 </nav>
                 <button
@@ -3098,8 +3127,8 @@
                         <p class="lede" style="margin-top: 18px">
                             Cuéntame brevemente qué te trae hasta aquí. Te
                             responderé personalmente para coordinar una
-                            primera conversación de acompañamiento, gratuita y
-                            con una duración máxima de 30 minutos.
+                            primera conversación de acompañamiento, sin costo
+                            y con una duración máxima de 30 minutos.
                         </p>
                     </div>
                     <form class="form-card" id="contactForm" novalidate>
@@ -3437,7 +3466,6 @@
                         {
                             name: "Cath González",
                             photo: "assets/testimonio-cath-gonzalez.webp",
-                            photoPosition: "50% 15%",
                             context: "Consultante",
                             excerpt:
                                 "Encontrar a Lilian fue una bendición. Es capaz de crear un espacio seguro donde puedes trabajar, crecer y florecer.",
@@ -3447,10 +3475,6 @@
                         {
                             name: "Yon Mikel Zabala",
                             photo: "assets/testimonio-yon-zabala.webp",
-                            photoFit: "contain",
-                            photoPosition: "50% 50%",
-                            photoScale: 1,
-                            photoBackdrop: "strong",
                             prideBadge: true,
                             context: "Consultante",
                             excerpt:
@@ -3461,7 +3485,6 @@
                         {
                             name: "Luis Flores Valenzuela",
                             photo: "assets/testimonio-luis-flores.webp",
-                            photoPosition: "50% 9%",
                             context:
                                 "Más de dos décadas trabajando con Lilian · Sesiones a distancia desde Canadá",
                             excerpt:
@@ -3472,10 +3495,6 @@
                         {
                             name: "Roxana Soto Ostos",
                             photo: "assets/testimonio-roxana-soto.webp",
-                            photoFit: "contain",
-                            photoPosition: "50% 50%",
-                            photoScale: 1,
-                            photoBackdrop: "strong",
                             context: "Consultante",
                             excerpt:
                                 "Siento el cambio en cada sesión; no tengo que esperar semanas para ver resultados.",
@@ -3485,9 +3504,6 @@
                         {
                             name: "Sergio Ramírez",
                             photo: "assets/testimonio-sergio-ramirez.webp",
-                            photoFit: "contain",
-                            photoPosition: "50% 50%",
-                            photoScale: 0.9,
                             context: "",
                             excerpt:
                                 "Mi experiencia con esta terapia, y en particular con Lilian, ha sido profundamente enriquecedora.",
@@ -3497,7 +3513,6 @@
                         {
                             name: "Noemí Zamora León",
                             photo: "assets/testimonio-noemi-zamora.webp",
-                            photoPosition: "50% 35%",
                             context: "",
                             excerpt:
                                 "Cada sesión ha sido un espacio de apoyo, aprendizaje y crecimiento que ha regresado tranquilidad a mi vida.",
@@ -3507,9 +3522,6 @@
                         {
                             name: "Ximena Nayelli León Zamora",
                             photo: "assets/testimonio-ximena-leon.webp",
-                            photoFit: "contain",
-                            photoPosition: "50% 45%",
-                            photoScale: 0.9,
                             context: "",
                             excerpt:
                                 "Esta terapia me ayudó a ver la vida desde otra perspectiva, conocerme mejor y encontrar respuestas a muchas de mis preguntas.",
@@ -3519,9 +3531,6 @@
                         {
                             name: "Rubén Gasque",
                             photo: "assets/testimonio-ruben-gasque.webp",
-                            photoFit: "contain",
-                            photoPosition: "50% 48%",
-                            photoScale: 0.88,
                             context: "",
                             excerpt:
                                 "Ha sido maravilloso mi proceso con Resonance. He crecido y me he vuelto mejor en cada sesión.",
@@ -3531,7 +3540,6 @@
                         {
                             name: "Eduardo Morales R.",
                             photo: "assets/testimonio-eduardo-morales.webp",
-                            photoPosition: "50% 3%",
                             context: "",
                             excerpt:
                                 "Tomar Resonance se volvió parte de mi vida. Ha sido mi guía para encontrar la mejor versión de mí y el equilibrio entre cuerpo, mente y metas.",
@@ -3541,7 +3549,6 @@
                         {
                             name: "Karla Vanessa Rodríguez",
                             photo: "assets/testimonio-karla-vanessa.webp",
-                            photoPosition: "50% 6%",
                             context: "",
                             excerpt:
                                 "Resonance Repatterning llegó a mi vida en un momento muy importante y me ayudó a transformarme desde una perspectiva más consciente y amorosa.",
@@ -3551,7 +3558,6 @@
                         {
                             name: "Jilarie Sánchez Meza",
                             photo: "assets/testimonio-jilarie-sanchez.webp",
-                            photoPosition: "50% 45%",
                             context: "",
                             excerpt:
                                 "Tomar Resonance es una de las mejores cosas que he experimentado; es una de las formas más lindas de conocerte y de crecer.",
@@ -3561,9 +3567,6 @@
                         {
                             name: "Jorge Galán",
                             photo: "assets/testimonio-jorge-galan.webp",
-                            photoFit: "contain",
-                            photoPosition: "50% 45%",
-                            photoScale: 0.9,
                             context: "",
                             excerpt:
                                 "La Terapia Holográfica me ha permitido comprenderme mejor, reconocer patrones profundos y crecer de una manera más consciente y humana.",
@@ -3573,7 +3576,6 @@
                         {
                             name: "César Armando Jiménez De la Garza",
                             photo: "assets/testimonio-cesar-jimenez.webp",
-                            photoPosition: "50% 20%",
                             context: "Consultante",
                             excerpt:
                                 "Tener la oportunidad de conocer Resonance hace +20 años me cambió la vida.",
@@ -3583,7 +3585,6 @@
                         {
                             name: "Pedro Soria",
                             photo: "assets/testimonio-pedro-soria.webp",
-                            photoPosition: "50% 5%",
                             context: "Consultante",
                             excerpt:
                                 "Estas terapias se han convertido en un complemento fundamental en mi vida.",
@@ -3610,6 +3611,11 @@
                         return div.innerHTML;
                     }
 
+                    // Tratamiento fotográfico único para las 14 tarjetas
+                    // (estándar basado en Yon Mikel Zabala): imagen completa
+                    // sin recorte, centrada, con fondo desenfocado reforzado.
+                    // No hay configuración por persona: todas comparten esta
+                    // misma regla de renderizado.
                     function photoBlockHtml(item) {
                         if (!item.photo) {
                             var initials = item.name
@@ -3630,44 +3636,16 @@
                                 "</div>"
                             );
                         }
-                        var fit = item.photoFit || "cover";
-                        var position = item.photoPosition || "50% 50%";
-                        var scale = item.photoScale || 1;
                         var alt = "Retrato de " + escapeHtml(item.name);
-                        if (fit === "contain") {
-                            var containedClass =
-                                "testimonial-card-large__photo testimonial-card-large__photo--contained";
-                            if (item.photoBackdrop === "strong") {
-                                containedClass +=
-                                    " testimonial-card-large__photo--portrait-strong";
-                            }
-                            return (
-                                '<div class="' +
-                                containedClass +
-                                '" style="--testimonial-photo:url(&quot;' +
-                                item.photo +
-                                '&quot;)">' +
-                                '<img src="' +
-                                item.photo +
-                                '" alt="' +
-                                alt +
-                                '" style="object-position:' +
-                                position +
-                                "; transform: scale(" +
-                                scale +
-                                ');">' +
-                                "</div>"
-                            );
-                        }
                         return (
-                            '<div class="testimonial-card-large__photo">' +
+                            '<div class="testimonial-card-large__photo testimonial-card-large__photo--contained testimonial-card-large__photo--portrait-strong" style="--testimonial-photo:url(&quot;' +
+                            item.photo +
+                            '&quot;)">' +
                             '<img src="' +
                             item.photo +
                             '" alt="' +
                             alt +
-                            '" style="object-position:' +
-                            position +
-                            ';">' +
+                            '" style="object-position:50% 50%; transform: scale(1);">' +
                             "</div>"
                         );
                     }
